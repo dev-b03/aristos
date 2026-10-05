@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-bg-base: #0D0D0D;
+    --color-bg-navy: #0D1B2A;
+    --color-surface-navy: #1B2638;
+    --color-surface-slate: #36454F;
+    --color-text-primary: #F2F0E8;
+    --color-text-secondary: #E0C9A6;
+    --color-accent-gold: #C5A059;
+    --color-accent-cream: #F4EDE1;
+  }
+
+  body {
+    background-color: #0D0D0D;
+    color: #F2F0E8;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    letter-spacing: -0.01em;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Cinzel', 'Syne', serif;
+    letter-spacing: 0.04em;
+  }
+
+  .font-editorial {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+
+  .font-modern {
+    font-family: 'Syne', sans-serif;
+  }
+
+  .font-mono-code {
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Material System */
+.material-clear-glass {
+  background: rgba(27, 38, 56, 0.28);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(224, 201, 166, 0.14);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+}
+
+.material-frosted-glass {
+  background: rgba(13, 27, 42, 0.72);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.6), inset 0 1px 0 0 rgba(224, 201, 166, 0.15);
+}
+
+.material-smoked-glass {
+  background: rgba(13, 13, 13, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.material-specular {
+  position: relative;
+  overflow: hidden;
+}
+.material-specular::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(224, 201, 166, 0.03) 40%,
+    rgba(255, 255, 255, 0.12) 50%,
+    rgba(224, 201, 166, 0.03) 60%,
+    transparent 100%
+  );
+  pointer-events: none;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.material-specular:hover::before {
+  transform: translateX(50%);
+}
+
+/* Mirror reflection surface */
+.mirror-surface {
+  transform: scaleY(-1);
+  opacity: 0.18;
+  filter: blur(1.5px);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85) 0%, transparent 70%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85) 0%, transparent 70%);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Noise texture overlay for dimensional atmosphere */
+.bg-ambient-grain {
+  background-image: radial-gradient(circle at 50% 20%, rgba(27, 38, 56, 0.6) 0%, rgba(13, 13, 13, 0.98) 75%);
+}
+
+/* Smooth custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0D0D0D;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(224, 201, 166, 0.2);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(224, 201, 166, 0.4);
+}
